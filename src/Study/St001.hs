@@ -2,4 +2,8 @@ module Study.St001 where
 
 -- ここにモジュールの内容を書きます
 sub:: IO ()
-sub = print (1::Int)
+sub = do
+  let trial = "This is a trial"
+      attempt = "This is an attempt"
+  putStrLn trial
+  putStrLn attempt

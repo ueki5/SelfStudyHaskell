@@ -1,5 +1,5 @@
 module Main where
-import Study.St001
+import Study.St001(sub)
 
 main :: IO ()
-main = putStrLn "Hello, world!"
+main = do sub

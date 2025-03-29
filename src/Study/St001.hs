@@ -1,4 +1,8 @@
+{-# LANGUAGE CPP #-}
 module Study.St001 where
+
+import System.IO (hSetEncoding, stdout, utf8)
+import GHC.IO.Encoding (setLocaleEncoding)
 
 -- ここにモジュールの内容を書きます
 isEven :: Int -> Bool
@@ -51,6 +55,9 @@ analyzeValue mx = case mx of
 
 sub:: IO ()
 sub = do
+    -- エンコーディングの設定
+    setLocaleEncoding utf8
+    hSetEncoding stdout utf8
     print (isEven 2)
     print (checkPair (1, 1))
     print (checkPair (2, 1))

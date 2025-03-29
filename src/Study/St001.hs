@@ -1,8 +1,8 @@
 {-# LANGUAGE CPP #-}
 module Study.St001 where
 
-import System.IO (hSetEncoding, stdout, utf8)
-import GHC.IO.Encoding (setLocaleEncoding)
+import System.IO (hSetEncoding, stdout, stdin, utf8)
+import GHC.IO.Encoding (setLocaleEncoding, setFileSystemEncoding)
 
 -- ここにモジュールの内容を書きます
 isEven :: Int -> Bool
@@ -57,6 +57,8 @@ sub:: IO ()
 sub = do
     -- エンコーディングの設定
     setLocaleEncoding utf8
+    setFileSystemEncoding utf8
+    hSetEncoding stdin utf8
     hSetEncoding stdout utf8
 
     -- 関数のテスト

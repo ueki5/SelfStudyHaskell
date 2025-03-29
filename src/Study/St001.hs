@@ -73,25 +73,25 @@ sub = do
   hSetEncoding stdout utf8
 
   -- 関数のテスト
-  print (isEven 2)
-  print (checkPair (1, 1))
-  print (checkPair (2, 1))
-  print (analyzeList []) -- "空リスト"
-  print (analyzeList [1]) -- "正の数のみの1要素リスト"
-  print (analyzeList [1, 2, 3]) -- "最初の2要素が正"
-  print (processValue (Just 5) 3) -- "与えられた値より大きい"
-  print (processValue Nothing 3) -- "値なし"
-  print (isEven 2)
-  print (checkPair (1, 1))
-  print (checkPair (2, 1))
-  print (analyzeList [])
-  print (analyzeList [1])
-  print (analyzeList [1, 2, 3])
-  print (processValue (Just 5) 3)
-  print (processValue Nothing 3)
+  putStrLn $ show (isEven 2)
+  putStrLn $ checkPair (1, 1)
+  putStrLn $ checkPair (2, 1)
+  putStrLn $ analyzeList [] -- "空リスト"
+  putStrLn $ analyzeList [1] -- "正の数のみの1要素リスト"
+  putStrLn $ analyzeList [1, 2, 3] -- "最初の2要素が正"
+  putStrLn $ processValue (Just 5) 3 -- "与えられた値より大きい"
+  putStrLn $ processValue Nothing 3 -- "値なし"
+  putStrLn $ show (isEven 2)
+  putStrLn $ checkPair (1, 1)
+  putStrLn $ checkPair (2, 1)
+  putStrLn $ analyzeList []
+  putStrLn $ analyzeList [1]
+  putStrLn $ analyzeList [1, 2, 3]
+  putStrLn $ processValue (Just 5) 3
+  putStrLn $ processValue Nothing 3
   -- OR条件のテスト
-  print (checkNumber 0) -- "0か1です"
-  print (checkNumber 6) -- "2か3の倍数です"
-  print (analyzeValue (Just 0)) -- "0か1"
-  print (analyzeValue (Just 15)) -- "範囲外"
-  print "終了"
+  putStrLn $ checkNumber 0 -- "0か1です"
+  putStrLn $ checkNumber 6 -- "2か3の倍数です"
+  putStrLn $ analyzeValue (Just 0) -- "0か1"
+  putStrLn $ analyzeValue (Just 15) -- "範囲外"
+  putStrLn "終了"

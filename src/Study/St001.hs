@@ -64,8 +64,8 @@ analyzeValue mx = case mx of
     | Just x <- val, x < 0 || x > 10 -> "範囲外"
     | otherwise -> "通常の値"
 
-sub :: IO ()
-sub = do
+sub001 :: IO ()
+sub001 = do
   -- エンコーディングの設定
   setLocaleEncoding utf8
   setFileSystemEncoding utf8

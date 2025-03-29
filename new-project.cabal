@@ -63,7 +63,10 @@ executable new-project
     -- Modules included in this executable, other than Main.
     other-modules:
         Study.St001
-
+        Study.St002
+        Study.St003
+        Study.St004
+        
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 

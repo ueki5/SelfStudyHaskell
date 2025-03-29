@@ -8,11 +8,11 @@ module Study.St002 where
 -- (^) : べき乗
 arithmeticOps :: IO ()
 arithmeticOps = do
-  putStrLn $ "1 + 2 = " ++ show (1 + 2)
-  putStrLn $ "5 - 3 = " ++ show (5 - 3)
-  putStrLn $ "4 * 2 = " ++ show (4 * 2)
-  putStrLn $ "6 / 2 = " ++ show (6 / 2)
-  putStrLn $ "2 ^ 3 = " ++ show (2 ^ 3)
+  putStrLn $ "1 + 2 = " ++ show ((1 + 2)::Int)
+  putStrLn $ "5 - 3 = " ++ show ((5 - 3)::Int)
+  putStrLn $ "4 * 2 = " ++ show ((4 * 2)::Int)
+  putStrLn $ "6 / 2 = " ++ show ((6 / 2)::Double)
+  putStrLn $ "2 ^ 3 = " ++ show ((2::Int) ^ (3::Int))
 
 -- 比較演算子
 -- (==) : 等しい
@@ -23,10 +23,10 @@ arithmeticOps = do
 -- (>=) : 以上
 compareOps :: IO ()
 compareOps = do
-  putStrLn $ "1 == 1: " ++ show (1 == 1)
-  putStrLn $ "1 /= 2: " ++ show (1 /= 2)
-  putStrLn $ "1 < 2:  " ++ show (1 < 2)
-  putStrLn $ "2 > 1:  " ++ show (2 > 1)
+  putStrLn $ "1 == 1: " ++ show ((1::Int) == (1::Int))
+  putStrLn $ "1 /= 2: " ++ show ((1::Int) /= (2::Int))
+  putStrLn $ "1 < 2:  " ++ show ((1::Int) < (2::Int))
+  putStrLn $ "2 > 1:  " ++ show ((2::Int) > (1::Int))
 
 -- 論理演算子
 -- (&&) : 論理積（AND）
@@ -43,11 +43,12 @@ logicalOps = do
 -- (:)   : 先頭に要素を追加
 listOps :: IO ()
 listOps = do
-  putStrLn $ "[1,2] ++ [3,4]: " ++ show ([1, 2] ++ [3, 4])
-  putStrLn $ "1 : [2,3]: " ++ show (1 : [2, 3])
+  putStrLn $ "[1,2] ++ [3,4]: " ++ 
+    show ([(1::Int), (2::Int)] ++ [(3::Int), (4::Int)])
+  putStrLn $ "1 : [2,3]: " ++ show (1 : [(2::Int), (3::Int)])
 
-sub :: IO ()
-sub = do
+sub002 :: IO ()
+sub002 = do
   putStrLn "\n演算子の例:"
   arithmeticOps
   compareOps

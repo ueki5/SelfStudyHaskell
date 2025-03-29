@@ -33,18 +33,6 @@ processValue mx y = case mx of
         | Just x <- val, x == y -> "同じ値"
         | otherwise -> "与えられた値より小さい"
 
-sub:: IO ()
-sub = do
-    print (isEven 2)
-    print (checkPair (1, 1))
-    print (checkPair (2, 1))
-    -- 新しい関数のテスト
-    print (analyzeList [])          -- "空リスト"
-    print (analyzeList [1])         -- "正の数のみの1要素リスト"
-    print (analyzeList [1,2,3])     -- "最初の2要素が正"
-    print (processValue (Just 5) 3)  -- "与えられた値より大きい"
-    print (processValue Nothing 3)   -- "値なし"
-
 -- OR条件の例
 checkNumber :: Int -> String
 checkNumber n = case n of
@@ -63,6 +51,15 @@ analyzeValue mx = case mx of
 
 sub:: IO ()
 sub = do
+    print (isEven 2)
+    print (checkPair (1, 1))
+    print (checkPair (2, 1))
+    -- 新しい関数のテスト
+    print (analyzeList [])          -- "空リスト"
+    print (analyzeList [1])         -- "正の数のみの1要素リスト"
+    print (analyzeList [1,2,3])     -- "最初の2要素が正"
+    print (processValue (Just 5) 3)  -- "与えられた値より大きい"
+    print (processValue Nothing 3)   -- "値なし"
     print (isEven 2)
     print (checkPair (1, 1))
     print (checkPair (2, 1))

@@ -58,10 +58,11 @@ sub = do
     -- エンコーディングの設定
     setLocaleEncoding utf8
     hSetEncoding stdout utf8
+
+    -- 関数のテスト
     print (isEven 2)
     print (checkPair (1, 1))
     print (checkPair (2, 1))
-    -- 新しい関数のテスト
     print (analyzeList [])          -- "空リスト"
     print (analyzeList [1])         -- "正の数のみの1要素リスト"
     print (analyzeList [1,2,3])     -- "最初の2要素が正"

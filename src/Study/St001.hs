@@ -17,8 +17,30 @@ checkPair x = case x of
       | (a, _) <- p, a > 0 -> "最初が正"
       | otherwise -> "その他"
 
+-- 複数のパターンマッチの組み合わせ例
+analyzeList :: [Int] -> String
+analyzeList xs = case xs of
+    lst | [] <- lst -> "空リスト"
+        | (x:xs') <- lst, x > 0, null xs' -> "正の数のみの1要素リスト"
+        | (x:y:_) <- lst, x > 0, y > 0 -> "最初の2要素が正"
+        | otherwise -> "その他のリスト"
+
+-- Maybe型とパターンマッチの組み合わせ
+processValue :: Maybe Int -> Int -> String
+processValue mx y = case mx of
+    val | Nothing <- val -> "値なし"
+        | Just x <- val, x > y -> "与えられた値より大きい"
+        | Just x <- val, x == y -> "同じ値"
+        | otherwise -> "与えられた値より小さい"
+
 sub:: IO ()
 sub = do
     print (isEven 2)
-    print (checkPair (1, 1))  -- "同じ数"が出力される
-    print (checkPair (2, 1))  -- "最初が正"が出力される
+    print (checkPair (1, 1))
+    print (checkPair (2, 1))
+    -- 新しい関数のテスト
+    print (analyzeList [])          -- "空リスト"
+    print (analyzeList [1])         -- "正の数のみの1要素リスト"
+    print (analyzeList [1,2,3])     -- "最初の2要素が正"
+    print (processValue (Just 5) 3)  -- "与えられた値より大きい"
+    print (processValue Nothing 3)   -- "値なし"

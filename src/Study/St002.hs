@@ -1,4 +1,3 @@
-
 module Study.St002 where
 
 -- 基本的な算術演算子
@@ -44,5 +43,13 @@ logicalOps = do
 -- (:)   : 先頭に要素を追加
 listOps :: IO ()
 listOps = do
-  putStrLn $ "[1,2] ++ [3,4]: " ++ show ([1,2] ++ [3,4])
-  putStrLn $ "1 : [2,3]: " ++ show (1 : [2,3])
+  putStrLn $ "[1,2] ++ [3,4]: " ++ show ([1, 2] ++ [3, 4])
+  putStrLn $ "1 : [2,3]: " ++ show (1 : [2, 3])
+
+sub :: IO ()
+sub = do
+  putStrLn "\n演算子の例:"
+  arithmeticOps
+  compareOps
+  logicalOps
+  listOps

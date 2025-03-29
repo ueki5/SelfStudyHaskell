@@ -44,3 +44,35 @@ sub = do
     print (analyzeList [1,2,3])     -- "最初の2要素が正"
     print (processValue (Just 5) 3)  -- "与えられた値より大きい"
     print (processValue Nothing 3)   -- "値なし"
+
+-- OR条件の例
+checkNumber :: Int -> String
+checkNumber n = case n of
+    x | x == 0 || x == 1 -> "0か1です"
+      | x < 0 || x > 100 -> "範囲外です"
+      | x `mod` 2 == 0 || x `mod` 3 == 0 -> "2か3の倍数です"
+      | otherwise -> "その他の数です"
+
+-- パターンマッチとOR条件の組み合わせ
+analyzeValue :: Maybe Int -> String
+analyzeValue mx = case mx of
+    val | Nothing <- val -> "値なし"
+        | Just x <- val, x == 0 || x == 1 -> "0か1"
+        | Just x <- val, x < 0 || x > 10 -> "範囲外"
+        | otherwise -> "通常の値"
+
+sub:: IO ()
+sub = do
+    print (isEven 2)
+    print (checkPair (1, 1))
+    print (checkPair (2, 1))
+    print (analyzeList [])
+    print (analyzeList [1])
+    print (analyzeList [1,2,3])
+    print (processValue (Just 5) 3)
+    print (processValue Nothing 3)
+    -- OR条件のテスト
+    print (checkNumber 0)    -- "0か1です"
+    print (checkNumber 6)    -- "2か3の倍数です"
+    print (analyzeValue (Just 0))  -- "0か1"
+    print (analyzeValue (Just 15)) -- "範囲外"

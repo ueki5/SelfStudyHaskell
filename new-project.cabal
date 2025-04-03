@@ -69,6 +69,7 @@ executable new-project
         Study.St005
         Study.St006
         Study.St007
+        Study.St008
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:

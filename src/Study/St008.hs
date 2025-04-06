@@ -3,6 +3,7 @@
 module Study.St008 where
 
 -- ライブラリ
+import Control.Monad
 import Data.String.Interpolate
 
 --------------------------------------------------
@@ -22,19 +23,23 @@ import Data.String.Interpolate
 -- // 非末尾再帰
 notTailRecursive :: Int -> Int
 notTailRecursive n =
-  if n == 0 then 1 
-            else notTailRecursive (n - 1) * n
+  if n == 0
+    then 1
+    else notTailRecursive (n - 1) * n
+
 -- // 末尾再帰
 tailRecursive :: Int -> Int
 tailRecursive n = tailRecursive' n 1
-  where tailRecursive' 0 r = r
-        tailRecursive' n' r = tailRecursive' (n' - 1) (n' * r)
-  
+  where
+    tailRecursive' 0 r = r
+    tailRecursive' n' r = tailRecursive' (n' - 1) (n' * r)
+
+fmt :: (Int -> Int) -> Int -> String
+fmt f n = [i|fact #{n} = #{f n}|]
+
 -- 処理実行
 sub008 :: IO ()
 sub008 = do
   putStrLn "処理実行"
-  putStrLn [i|notTailRecursive:#{r1}\ntailRecursive:#{r2}|]
-  where
-    r1 = notTailRecursive 3
-    r2 = tailRecursive 3
+  forM_ [0 .. 10] $ \n -> do
+    putStrLn $ fmt notTailRecursive n

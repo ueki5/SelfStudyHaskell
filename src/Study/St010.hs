@@ -18,8 +18,11 @@ maybes = [
   Nothing
   ]
 
+step1 :: [First Int]
 step1 = map First maybes
+step2 :: First Int 
 step2 = mconcat step1
+step3 :: Maybe Int
 step3 = getFirst step2
 -- 処理実行
 sub :: IO ()

@@ -1,6 +1,6 @@
 module Main where
 
-import Study.St009(sub)
+import Study.St010(sub)
 
 main :: IO ()
 main = do

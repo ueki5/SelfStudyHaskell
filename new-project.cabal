@@ -73,6 +73,7 @@ executable new-project
         Study.St009
         Study.St009.Mod1
         Study.St009.Lib.Mod2
+        Study.St010
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
